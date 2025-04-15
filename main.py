@@ -1,3 +1,8 @@
+tokenizer = AutoTokenizer.from_pretrained("cajcodes/DistilBERT-PoliticalBias")
+model = AutoModelForSequenceClassification.from_pretrained("cajcodes/DistilBERT-PoliticalBias")
+model.eval()
+
+
 from fastapi import FastAPI
 from pydantic import BaseModel
 from transformers import AutoTokenizer, AutoModelForSequenceClassification
