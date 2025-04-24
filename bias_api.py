@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from transformers import AutoTokenizer, AutoModelForSequenceClassification
 import torch
@@ -10,6 +11,15 @@ model.eval()  # Set to eval mode to improve performance
 
 # Initialize FastAPI app
 app = FastAPI()
+
+# Enable CORS for all origins (adjust if needed)
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # You can restrict to specific origins if needed
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 # Define the request model
 class TextInput(BaseModel):
