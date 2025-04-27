@@ -5,8 +5,8 @@ from transformers import AutoTokenizer, AutoModelForSequenceClassification
 import torch
 
 # Pre-load the model here, before FastAPI gets any requests
-tokenizer = AutoTokenizer.from_pretrained("cajcodes/DistilBERT-PoliticalBias")
-model = AutoModelForSequenceClassification.from_pretrained("cajcodes/DistilBERT-PoliticalBias")
+tokenizer = AutoTokenizer.from_pretrained("peekayitachi/BiasCheck-RoBERTa")
+model = AutoModelForSequenceClassification.from_pretrained("peekayitachi/BiasCheck-RoBERTa")
 model.eval()  # Set to eval mode to improve performance
 
 # Initialize FastAPI app
